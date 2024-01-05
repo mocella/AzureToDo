@@ -1,6 +1,0 @@
-@AzureToDo.Api_HostAddress = http://localhost:5241
-
-GET {{AzureToDo.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
