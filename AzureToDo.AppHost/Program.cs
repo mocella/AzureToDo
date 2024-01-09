@@ -1,17 +1,18 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var sqlpassword = builder.Configuration["sqlpassword"];
-
-var sql = builder.AddSqlServerContainer("sql")
-    .AddDatabase("sqldata");
+var postgresqlDb = builder.AddPostgres("pg")
+    .AddDatabase("ticketdb");
 
 var cache = builder.AddRedisContainer("cache");
 
-var apiservice = builder.AddProject<Projects.AzureToDo_ApiService>("apiservice")
-    .WithReference(sql);
+var apiService = builder.AddProject<Projects.AzureToDo_ApiService>("apiservice")
+    .WithReference(postgresqlDb);
 
 builder.AddProject<Projects.AzureToDo_Web>("webfrontend")
     .WithReference(cache)
-    .WithReference(apiservice);
+    .WithReference(apiService);
+
+builder.AddProject<Projects.AzureToDo_DBMigrations>("dbmigrations")
+    .WithReference(postgresqlDb);
 
 builder.Build().Run();

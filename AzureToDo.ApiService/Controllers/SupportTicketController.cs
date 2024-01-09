@@ -1,4 +1,4 @@
-﻿using AzureToDo.ApiService.Entities;
+﻿using AzureToDo.Db.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AzureToDo.ApiService.Controllers

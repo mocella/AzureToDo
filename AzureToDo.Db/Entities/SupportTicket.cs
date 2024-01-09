@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AzureToDo.ApiService.Entities
+namespace AzureToDo.Db.Entities
 {
     public sealed class SupportTicket
     {

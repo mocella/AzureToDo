@@ -1,4 +1,4 @@
-using AzureToDo.ApiService.Entities;
+using AzureToDo.Db.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +9,7 @@ builder.AddServiceDefaults();
 builder.Services.AddProblemDetails();
 builder.Services.AddControllers();
 
-builder.AddSqlServerDbContext<TicketContext>("sqldata");
+builder.AddNpgsqlDbContext<TicketContext>("ticketdb");
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -31,15 +31,7 @@ app.MapControllers();
 
 app.MapDefaultEndpoints();
 
-if (app.Environment.IsDevelopment())
-{
-    using (var scope = app.Services.CreateScope())
-    {
-        var context = scope.ServiceProvider.GetRequiredService<TicketContext>();
-        context.Database.EnsureCreated();
-    }
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     // The default HSTS value is 30 days.
