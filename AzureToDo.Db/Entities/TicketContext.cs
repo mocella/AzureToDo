@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace AzureToDo.ApiService.Entities
+namespace AzureToDo.Db.Entities
 {
     public class TicketContext(DbContextOptions options) : DbContext(options)
     {

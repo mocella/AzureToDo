@@ -11,12 +11,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AzureToDo.ApiService\AzureToDo.ApiService.csproj" />
+    <ProjectReference Include="..\AzureToDo.DBMigrations\AzureToDo.DBMigrations.csproj" />
     <ProjectReference Include="..\AzureToDo.Web\AzureToDo.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.2.23619.3" />
-    <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.2.23619.3" />
   </ItemGroup>
 
 </Project>

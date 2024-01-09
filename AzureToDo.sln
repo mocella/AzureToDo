@@ -10,6 +10,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureToDo.ApiService", "Azu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureToDo.Web", "AzureToDo.Web\AzureToDo.Web.csproj", "{D65C819C-ECF4-4755-A0A0-565EEC6D4596}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureToDo.DBMigrations", "AzureToDo.DBMigrations\AzureToDo.DBMigrations.csproj", "{2B213626-28DB-48BB-B6A4-1348AD1D868C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureToDo.Db", "AzureToDo.Db\AzureToDo.Db.csproj", "{14FDF4A1-44D4-438F-91DF-FF5F3B8E6FC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,14 @@ Global
 		{D65C819C-ECF4-4755-A0A0-565EEC6D4596}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D65C819C-ECF4-4755-A0A0-565EEC6D4596}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D65C819C-ECF4-4755-A0A0-565EEC6D4596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B213626-28DB-48BB-B6A4-1348AD1D868C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B213626-28DB-48BB-B6A4-1348AD1D868C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B213626-28DB-48BB-B6A4-1348AD1D868C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B213626-28DB-48BB-B6A4-1348AD1D868C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14FDF4A1-44D4-438F-91DF-FF5F3B8E6FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FDF4A1-44D4-438F-91DF-FF5F3B8E6FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FDF4A1-44D4-438F-91DF-FF5F3B8E6FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14FDF4A1-44D4-438F-91DF-FF5F3B8E6FC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

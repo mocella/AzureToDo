@@ -1,5 +1,5 @@
-using AzureToDo.ApiService.Entities;
 using AzureToDo.ApiService.Models;
+using AzureToDo.Db.Entities;
 
 namespace AzureToDo.Web;
 
