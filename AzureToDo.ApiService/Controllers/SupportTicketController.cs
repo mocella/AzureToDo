@@ -19,21 +19,21 @@ namespace AzureToDo.ApiService.Controllers
         public IEnumerable<SupportTicket?> GetSupportTickets()
         {
             // obviously not something we'd ever do!
-            return _ticketContext.Tickets.ToList();
+            return _ticketContext.SupportTickets.ToList();
         }
 
         // GET: api/SupportTicket/5
         [HttpGet("{id}")]
         public SupportTicket? GetSupportTicket(int id)
         {
-            return _ticketContext.Tickets.FirstOrDefault(t => t.Id == id);
+            return _ticketContext.SupportTickets.FirstOrDefault(t => t.Id == id);
         }
 
         // POST: api/SupportTicket
         [HttpPost]
         public void PostSupportTicket([FromBody] SupportTicket ticket)
         {
-            _ticketContext.Tickets.Add(ticket); 
+            _ticketContext.SupportTickets.Add(ticket); 
             _ticketContext.SaveChanges();
         }
 
@@ -46,7 +46,7 @@ namespace AzureToDo.ApiService.Controllers
             {
                 return;
             }   
-            _ticketContext.Tickets.Remove(ticket);
+            _ticketContext.SupportTickets.Remove(ticket);
             _ticketContext.SaveChanges();    
         }
     }
