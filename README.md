@@ -3,9 +3,18 @@
 ## Developer Machine Setup
 Follow the Aspire setup and tooling installation directions [here](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio)
 
+## Building the App
+- install Nuke.Build via `dotnet tool install Nuke.GlobalTool --global`
+- run the build process from repo root: `nuke`
+    - This triggers the following steps:
+        - Clean
+        - Restore
+        - Compile
+        - Test
+
 ## Deploying to Azure
 - Authenticate with your Azure account: azd auth login
-- From Terminal at solution root: 
+- From Terminal at repo root: 
     - `azd infra synth`
     - `azd up`        
     - do your testing/verification
