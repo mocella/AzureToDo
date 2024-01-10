@@ -21,4 +21,8 @@
     <ProjectReference Include="..\AzureToDo.ServiceDefaults\AzureToDo.ServiceDefaults.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

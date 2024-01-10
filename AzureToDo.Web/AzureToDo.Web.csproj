@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AzureToDo.ApiService\AzureToDo.ApiService.csproj" />
+    <ProjectReference Include="..\AzureToDo.Db\AzureToDo.Db.csproj" />
     <ProjectReference Include="..\AzureToDo.ServiceDefaults\AzureToDo.ServiceDefaults.csproj" />
   </ItemGroup>
 

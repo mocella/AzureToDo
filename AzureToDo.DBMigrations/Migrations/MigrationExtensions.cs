@@ -19,18 +19,30 @@ namespace AzureToDo.DBMigrations.Migrations
             }
         }
 
-        public static void EnsureDataBaseExists(string connectionStr, string dbname)
+        public static void EnsureDataBaseExists(string ticketConnectionString, string dbname)
         {            
-            if (!DbExists(connectionStr, dbname))
-            {
-                var rawConnection = connectionStr.Replace("Database=ticketdb", string.Empty);
-                using var conn = new NpgsqlConnection(rawConnection);
+            if (!DbExists(ticketConnectionString, dbname))
+            {                
+                var adjustedConnectionString = BuildCreateDbConnectionString(ticketConnectionString);
+                using var conn = new NpgsqlConnection(adjustedConnectionString);
+                    
                 var sql = $"CREATE DATABASE {dbname};";
                 using var createCommand = new NpgsqlCommand(sql, conn);
                 conn.Open();
                 createCommand.ExecuteNonQuery();
                 conn.Close();
             }            
+        }
+
+        private static string BuildCreateDbConnectionString(string ticketConnectionString)
+        {
+            var connStringParts = ticketConnectionString.Split(';')
+                .Select(t => t.Split(new char[] { '=' }, 2))
+                .ToDictionary(t => t[0].Trim(), t => t[1].Trim(), StringComparer.InvariantCultureIgnoreCase);
+            if (connStringParts.ContainsKey("Database"))
+                connStringParts.Remove("Database");
+            var adjustedConnectionString = string.Join(";", connStringParts.Select(x => x.Key + "=" + x.Value).ToArray());
+            return adjustedConnectionString;
         }
 
         private static bool DbExists(string connectionStr, string dbname)

@@ -64,26 +64,90 @@ resource containerAppEnvironment 'Microsoft.App/managedEnvironments@2023-05-01' 
   tags: tags
 }
 
+resource ticketdb 'Microsoft.App/containerApps@2023-05-02-preview' = {
+  name: 'ticketdb'
+  location: location
+  properties: {
+    environmentId: containerAppEnvironment.id
+    configuration: {
+      service: {
+        type: 'postgres'
+      }
+    }
+    template: {
+      containers: [
+        {
+          image: 'postgres'
+          name: 'postgres'
+        }
+      ]
+    }
+  }
+  tags: union(tags, {'aspire-resource-name': 'ticketdb'})
+}
+
 resource cache 'Microsoft.App/containerApps@2023-05-02-preview' = {
   name: 'cache'
   location: location
   properties: {
     environmentId: containerAppEnvironment.id
     configuration: {
-      service: {
-        type: 'redis'
+      activeRevisionsMode: 'Single'
+      ingress: {
+        external: false
+        targetPort: 6379
+        transport: 'tcp'
       }
     }
     template: {
       containers: [
         {
-          image: 'redis'
-          name: 'redis'
+          image: 'redis:latest'
+          name: 'cache'
         }
       ]
     }
   }
   tags: union(tags, {'aspire-resource-name': 'cache'})
+}
+
+resource pg 'Microsoft.App/containerApps@2023-05-02-preview' = {
+  name: 'pg'
+  location: location
+  properties: {
+    environmentId: containerAppEnvironment.id
+    configuration: {
+      activeRevisionsMode: 'Single'
+      ingress: {
+        external: false
+        targetPort: 5432
+        transport: 'tcp'
+      }
+    }
+    template: {
+      containers: [
+        {
+          image: 'postgres:latest'
+          name: 'pg'
+          env: [
+            {
+              name: 'POSTGRES_HOST_AUTH_METHOD'
+              value: 'scram-sha-256'
+            }
+            {
+              name: 'POSTGRES_INITDB_ARGS'
+              value: '--auth-host=scram-sha-256 --auth-local=scram-sha-256'
+            }
+            {
+              name: 'POSTGRES_PASSWORD'
+              value: '${inputs['pg']['password']}'
+            }
+          ]
+        }
+      ]
+    }
+  }
+  tags: union(tags, {'aspire-resource-name': 'pg'})
 }
 
 

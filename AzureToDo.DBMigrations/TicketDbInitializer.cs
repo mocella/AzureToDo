@@ -10,8 +10,8 @@ namespace AzureToDo.DBMigrations
         public const string ActivitySourceName = "Migrations";
 
         private readonly ActivitySource _activitySource = new(ActivitySourceName);
-        private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly ConnectionStringConfig _connectionStringConfig;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
 
         public TicketDbInitializer(IServiceScopeFactory serviceScopeFactory,
             IOptions<ConnectionStringConfig> connectionStringConfig)
