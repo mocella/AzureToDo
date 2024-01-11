@@ -1,4 +1,5 @@
-# AzureToDo
+# AzureToDo - Aspire Proof of Concept
+This repo provides a working example of the Aspire Stack.  While this technology is still in Preview status, it offers a quick path to getting developer workstations setup for launching and debugging cloud native applications.  It can even get your application deployed into Azure, allowing us to quickly stand up proof of concept applications in Azure that we can share with stakeholders.
 
 ## Developer Machine Setup
 Follow the Aspire setup and tooling installation directions [here](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio)
