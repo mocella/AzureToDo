@@ -13,7 +13,7 @@ Follow the Aspire setup and tooling installation directions [here](https://learn
         - Test
 
 ## Deploying to Azure
-- Authenticate with your Azure account: azd auth login
+- Authenticate with your Azure account: `azd auth login`
 - From Terminal at repo root: 
     - `azd infra synth`
     - `azd up`        
