@@ -22,12 +22,14 @@ The following components make up this application:
 
 ## Building the App
 - install Nuke.Build via `dotnet tool install Nuke.GlobalTool --global`
+- install the xunit runner for Nuke.Build via `nuke :add-package xunit.runner.console --version 2.6.5`
 - run the build process from repo root: `nuke`
     - This triggers the following steps:
         - Clean
         - Restore
         - Compile
-        - Test
+        - UnitTest 
+            - *filters tests for category attribute="unitTest"*
      
 ## Running the App
 - Ensure AzureToDo.AppHost is set as the startup project

@@ -1,0 +1,1 @@
+# placeholder folder from initial skaffold, but useful if/when DTOs become necessary
