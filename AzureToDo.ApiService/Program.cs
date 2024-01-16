@@ -1,4 +1,5 @@
-using AzureToDo.Db.Entities;
+﻿using AzureToDo.Db.Entities;
+using AzureToDo.Db.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 builder.Services.AddControllers();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 builder.AddNpgsqlDbContext<TicketContext>("ticketdb");
 

@@ -72,10 +72,11 @@
           "items": {
             "type": "string",
             "enum": [
+              "AllTests",
               "Clean",
               "Compile",
               "Restore",
-              "Test"
+              "UnitTest"
             ]
           }
         },
@@ -89,10 +90,11 @@
           "items": {
             "type": "string",
             "enum": [
+              "AllTests",
               "Clean",
               "Compile",
               "Restore",
-              "Test"
+              "UnitTest"
             ]
           }
         },
